@@ -1,3 +1,4 @@
+{{ if not (eq .chezmoi.hostname "kinsey-desktop") -}}
 Host desktop
 HostName {{ .desktop.ip.public }}
 User {{ .desktop.user }}
@@ -5,3 +6,4 @@ User {{ .desktop.user }}
 Host desktop-local
 HostName {{ .desktop.ip.local }}
 User {{ .desktop.user }}
+{{- end }}
