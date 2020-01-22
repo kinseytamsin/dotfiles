@@ -1,0 +1,145 @@
+" Vundle {{{1
+" Begin {{{2
+set nocompatible " be iMproved, required
+filetype off     " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins {{{2
+" more intelligent behavior for %
+Plugin 'matchit.zip'
+
+" for aligning text
+Plugin 'junegunn/vim-easy-align'
+
+" various things helpful for Rust programming
+Plugin 'rust-lang/rust.vim'
+
+" Help {{{3
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" End {{{2
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" Colors {{{1
+if has('gui_running')
+    colorscheme evening
+else
+    colorscheme torte
+endif
+
+" enable syntax highlighting
+syntax enable
+
+" highlight trailing whitespace, except when typing at end of line
+autocmd InsertEnter * match Error /\s\+\%#\@<!$/
+autocmd InsertLeave * match Error /\s\+$/
+
+" Spaces & Tabs {{{1
+" set some default values for indentation before ftplugin kicks in
+set tabstop=4     " number of visual spaces per tab
+set softtabstop=4 " number of spaces per <Tab> when editing
+set shiftwidth=4  " number of spaces per step of (auto)indent
+set expandtab     " tabs to spaces
+
+" UI Config {{{1
+" turn on filetype detection and load language-specific indent files
+filetype plugin indent on
+
+" fix backspace behavior
+set backspace=indent,eol,start
+
+if has('gui_running')
+    if has('gui_win32')
+        set guifont=Anonymous_Pro:h12
+    else
+        set guifont=Anonymous\ Pro\ 12
+    endif
+endif
+
+" line numbering
+set number
+
+" use Unicode UTF-8
+if has('multi_byte')
+    if &termencoding == ""
+        let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+    setglobal fileencoding=utf-8
+    set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+" highlight PEP 8 max line lengths
+set colorcolumn=72,79
+
+set textwidth=79
+
+set nowrap
+set list listchars=tab:»\ ,precedes:‹,extends:›
+" show cursor position in statusbar
+set ruler
+" highlight current line
+set cursorline
+" visual autocomplete for command menu
+set wildmenu
+
+" Searching {{{1
+set incsearch " search as characters are entered
+set hlsearch  " highlight matches
+
+" Folding {{{1
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+
+" Custom Commands {{{1
+command VimrcFold setlocal foldmethod=marker foldlevel=0
+" alternate settings for displaying prose instead of code
+command Prose setlocal wrap textwidth=0 colorcolumn= linebreak
+" Other {{{1
+" vim-easy-align shortcut
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+
+augroup configgroup
+    autocmd!
+    " settings specifically for git commit messages
+    autocmd FileType gitcommit setlocal colorcolumn=50,72
+    autocmd FileType gitcommit setlocal textwidth=72
+augroup END
