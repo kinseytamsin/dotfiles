@@ -1,0 +1,8 @@
+[user]
+	name = Kinsey Favre
+	email = kinseytamsin@tutanota.com
+	signingkey = 0xf42a38faf496f4be
+[core]
+	editor = vim
+[commit]
+	gpgsign = true
