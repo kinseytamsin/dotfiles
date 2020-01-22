@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{- define "install-pkg" -}}
+    {{ with .chezmoi.osRelease.id -}}
+        {{ if (contains "debian" .) -}}
+            apt-get install
+        {{- else if (or (contains "arch" .) (contains "manjaro" .)) -}}
+            pacman -Sy --needed
+        {{- end -}}
+    {{ end -}}
+{{ end }}
+
+sudo {{ template "install-pkg" . }} thefuck

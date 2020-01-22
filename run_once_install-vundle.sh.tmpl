@@ -1,0 +1,8 @@
+#!/bin/sh
+
+vundle_dir='{{.chezmoi.homedir}}/.vim/bundle/Vundle.vim'
+
+if [ ! -d $vundle_dir ]; then
+    mkdir -p $vundle_dir
+    git clone --depth 1 https://github.com/VundleVim/Vundle.vim $vundle_dir
+fi
