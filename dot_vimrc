@@ -132,14 +132,15 @@ set foldmethod=indent
 command VimrcFold setlocal foldmethod=marker foldlevel=0
 " alternate settings for displaying prose instead of code
 command Prose setlocal wrap textwidth=0 colorcolumn= linebreak
-" Other {{{1
-" vim-easy-align shortcut
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
-
+" Autogroups {{{1
 augroup configgroup
     autocmd!
     " settings specifically for git commit messages
     autocmd FileType gitcommit setlocal colorcolumn=50,72
     autocmd FileType gitcommit setlocal textwidth=72
 augroup END
+
+" Other {{{1
+" vim-easy-align shortcut
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
