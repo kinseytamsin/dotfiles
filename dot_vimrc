@@ -113,8 +113,10 @@ set nowrap
 set list listchars=tab:»\ ,precedes:‹,extends:›
 " show cursor position in statusbar
 set ruler
-" highlight current line
-set cursorline
+if has('gui_running')
+    " highlight current line
+    set cursorline
+endif
 " visual autocomplete for command menu
 set wildmenu
 
