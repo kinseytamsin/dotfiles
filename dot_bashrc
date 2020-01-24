@@ -18,3 +18,6 @@ eval "$(thefuck --alias)"
 # use vim as editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+# use sccache for rustc
+export RUSTC_WRAPPER=sccache
