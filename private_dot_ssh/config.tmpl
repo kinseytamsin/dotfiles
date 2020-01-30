@@ -1,16 +1,16 @@
 {{ if not (eq .chezmoi.hostname "kinsey-desktop") -}}
 Host desktop
-HostName {{ .desktop.ip.public }}
-User {{ .desktop.user }}
+  HostName {{ .desktop.ip.public }}
+  User {{ .desktop.user }}
 
 Host desktop-local
-HostName {{ .desktop.ip.local }}
-User {{ .desktop.user }}
+  HostName {{ .desktop.ip.local }}
+  User {{ .desktop.user }}
 {{- end }}
 
 {{ if eq .chezmoi.hostname "kinsey-pinebook" -}}
 Host aur
-HostName aur.archlinux.org
-IdentityFile ~/.ssh/aur
-User aur
+  HostName aur.archlinux.org
+  IdentityFile ~/.ssh/aur
+  User aur
 {{- end }}
