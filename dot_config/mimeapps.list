@@ -39,3 +39,4 @@ application/x-alpm-package=engrampa.desktop
 [Added Associations]
 application/x-alpm-package=engrampa.desktop;
 text/x-csrc=gvim.desktop;
+video/x-matroska=smplayer.desktop;
