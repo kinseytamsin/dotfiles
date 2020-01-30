@@ -7,3 +7,10 @@ Host desktop-local
 HostName {{ .desktop.ip.local }}
 User {{ .desktop.user }}
 {{- end }}
+
+{{ if eq .chezmoi.hostname "kinsey-pinebook" -}}
+Host aur
+HostName aur.archlinux.org
+IdentityFile ~/.ssh/aur
+User aur
+{{- end }}
