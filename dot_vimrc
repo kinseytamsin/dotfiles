@@ -25,6 +25,9 @@ Plugin 'rust-lang/rust.vim'
 " syntax for TOML
 Plugin 'cespare/vim-toml'
 
+" syntax highlighting and improved indentation for JavaScript
+Plugin 'pangloss/vim-javascript'
+
 " Help {{{3
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
