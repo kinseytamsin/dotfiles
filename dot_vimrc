@@ -22,6 +22,9 @@ Plugin 'junegunn/vim-easy-align'
 " various things helpful for Rust programming
 Plugin 'rust-lang/rust.vim'
 
+" syntax for TOML
+Plugin 'cespare/vim-toml'
+
 " Help {{{3
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
