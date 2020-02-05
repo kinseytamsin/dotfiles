@@ -65,11 +65,11 @@ call vundle#end()            " required
 " Put your non-Plugin stuff after this line
 
 " Colors {{{1
-if has('gui_running')
-    colorscheme evening
-else
-    colorscheme torte
-endif
+" use 256 colors in terminal if supported
+set t_Co=256
+" allow italics
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 
 " enable syntax highlighting
 syntax enable
@@ -94,10 +94,11 @@ set backspace=indent,eol,start
 
 if has('gui_running')
     if has('gui_win32')
-        set guifont=Anonymous_Pro:h12
+        set guifont=Anonymous_Pro:h14
     else
-        set guifont=Anonymous\ Pro\ 12
+        set guifont=Anonymous\ Pro\ 14
     endif
+    set lines=25 columns=84
 endif
 
 " line numbering
@@ -128,6 +129,8 @@ if has('gui_running')
 endif
 " visual autocomplete for command menu
 set wildmenu
+" show (partial) command in statusbar
+set showcmd
 
 " Searching {{{1
 set incsearch " search as characters are entered
