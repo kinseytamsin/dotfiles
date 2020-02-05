@@ -28,6 +28,9 @@ Plugin 'cespare/vim-toml'
 " syntax highlighting and improved indentation for JavaScript
 Plugin 'pangloss/vim-javascript'
 
+" Monokai color scheme
+Plugin 'patstockwell/vim-monokai-tasty'
+
 " Help {{{3
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
