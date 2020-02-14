@@ -1,2 +1,4 @@
+{{ if .x_server -}}
 setxkbmap -option compose:ralt
 ibus-daemon -drx
+{{- end }}
