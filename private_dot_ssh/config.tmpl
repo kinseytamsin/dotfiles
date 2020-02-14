@@ -14,3 +14,10 @@ Host aur
   IdentityFile ~/.ssh/aur
   User aur
 {{- end }}
+
+{{ if not (eq .chezmoi.hostname "penny-server") -}}
+Host server-local
+  HostName {{ .server.ip.local }}
+  User {{ .server.user }}
+  IdentityFile ~/.ssh/server
+{{- end }}
