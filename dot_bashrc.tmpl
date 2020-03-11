@@ -23,3 +23,6 @@ export EDITOR="$VISUAL"
 
 # use sccache for rustc
 export RUSTC_WRAPPER=sccache
+
+# gpg might give weird errors if this isn't set correctly
+export GPG_TTY="$(tty)"
